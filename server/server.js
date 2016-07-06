@@ -1,11 +1,13 @@
 var express = require('express');
 
 var app = express();
-
+app.use(express.static(__dirname + '/../client'));
+//app.use(express.static(__dirname + '/../styles'));
 app.listen(9000, function(err){
   if (err){
     console.log('server sucks');
   }
+  console.log('server is listening.....')
 })
 //var app = require('server.js');
 

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app='mvpApp1'>
+<head>
+    <title>WHO's Your Team?</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+</head>
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
+
+  <div class='container'>
+      <h1>Who's Your Team?!</h1>
+        <div ng-controller='mvpCtrl1'>
+          <form>
+            Enter your city <input type='text' placeholder="Enter A City" ng-model='mvpCity' value='*'/> 
+            <button ng-click='getData()'>Get Team Data</button>
+          </form>
+
+          <h1>You entered: {{ mvpCity }}</h1>
+
+          <ul>
+              <li ng-repeat='team in teams' ng-if='mvpCity === team.name'>
+                <p>Team Name is: {{ team.name }}</p>
+                <p>Team Location: {{ team.location }}</p>
+                <p>Team Nickname: {{ team.nickname }}</p>
+                <p>Popular Hashtags: {{ team.hashtag }}</p>
+              </li>
+          </ul>
+        </div>
+        
+      <script src='baseball.js'></script>
+      <script src='football.js'></script>
+      <div ng-view></div>
+  </div>
+  </body>
+</html>

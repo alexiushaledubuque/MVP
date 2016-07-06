@@ -7,6 +7,7 @@
 <body>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js'></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
 
   <h1>Who's Your Team?!</h1>
     <div ng-controller='mvpCtrl1'>
@@ -20,7 +21,6 @@
       <ul>
           <li ng-repeat='team in teams' ng-if='mvpCity === team.name'>
             <p>Team Name is: {{ team.name }}</p>
-            <!--<p>Team in this division: {{ division }}</p>-->
             <p>Team Nickname: {{ team.nickname }}</p>
             <p>Team Location: {{ team.location }}</p>
           </li>
@@ -29,12 +29,13 @@
       <!--<p ng-repeat='division in divisions' ng-if='division.id === team.id'>Division: {{ division.name }} </p>-->
     </div>
 
-    <div ng-controller='mvpCtrl2'>
+    <!--<div ng-controller='mvpCtrl2'>
       <div> {{ data }} </div>
       <button ng-click='getBaseballData()'>Get Baseball Data</button>
-    </div>
+    </div>-->
 
-    <script src='baseball.js'></script>
-    <script src='football.js'></script>
+    <script src='client/baseball.js'></script>
+    <script src='client/football.js'></script>
+    <div ng-view></div>
   </body>
 </html>
