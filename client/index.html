@@ -16,20 +16,34 @@
         <div ng-controller='mvpCtrl1'>
           <form>
             <h3>Enter your city</h3><input type='text' placeholder="Enter A City" ng-model='mvpCity' autofocus />
-            <button ng-click='getData()'>Get Team Info..</button>
+            <button ng-click='getData();getBaseballData()'>Get Team Info..</button>
           </form>
 
-          <h1>You entered: {{ mvpCity }}</h1>
-
+          <h1>Results for: {{ mvpCity }} </h1>
+        <section>
           <ul>
               <li ng-repeat='team in teams' ng-if='mvpCity === team.name'>
-                <p>Team Name is: {{ team.name }}</p>
-                <p>Team Location: {{ team.location }}</p>
-                <p>Team Nickname: {{ team.nickname }}</p>
+                <p>Football Team Name is: {{ team.name }}</p>
+                <p>Location: {{ team.location }}</p>
+                <p>Nickname: {{ team.nickname }}</p>
                 <p>Popular Hashtags: {{ team.hashtag }}</p>
-                <p>Team Motto: {{ team.hashtags[1] }}</p>
+                <p>Motto: {{ team.hashtags[1] }}</p>
               </li>
           </ul>
+        </section>
+        <section>
+         <ul>
+            <li ng-repeat='bteam in bteams' ng-if='mvpCity === bteam.name'>
+              <p>Baseball Team Name is: {{ bteam.name }}</p>
+              <p>Location: {{ bteam.location }}</p>
+              <p>Nickname: {{ bteam.nickname }}</p>
+              <p>Popular Hashtags: {{ bteam.hashtag }}</p>
+              <p>Motto: {{ bteam.hashtags[1] }}</p>
+            </li>
+          </ul>
+        </section>
+
+
         </div>
 
       <script src='baseball.js'></script>

@@ -1,7 +1,7 @@
 angular.module('mvpApp1', [])
 
   .controller('mvpCtrl2', function($scope, $http) {
-    $scope.data = {};
+    $scope.baseball = {};
 
 	$scope.getBaseballData = function(){
         $http({
@@ -14,11 +14,12 @@ angular.module('mvpApp1', [])
            "cache-control": "no-cache"
           }
         }).then(function mySucces(response) {
-            $scope.data = response.data;
+            $scope.baseball = response.data;
         }, function error(error) {
             console.log(error);
         });
       };
+      
 });
 
 
