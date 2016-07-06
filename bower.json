@@ -1,0 +1,17 @@
+{
+  "name": "mvp",
+  "description": "solo project - 2 day sprint",
+  "main": "mvp.js",
+  "authors": [
+    "Alexius Hale-Dubuque"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

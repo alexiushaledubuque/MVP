@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app='mvpApp1'>
+<head>
+    <title>WHO's Your Team?</title>
+    <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+</head>
+<body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src='http://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js'></script>
+
+  <h1>Who's Your Team?!</h1>
+    <div ng-controller='mvpCtrl1'>
+      <form>
+        Enter your city <input type='text' placeholder="Enter A City" ng-model='mvpCity' /> 
+        <button ng-click='getData()'>Get Team Data</button>
+      </form>
+
+      <h1>You entered: {{ mvpCity }}</h1>
+
+      <ul>
+          <li ng-repeat='team in teams' ng-if='mvpCity === team.name'>
+            <p>Team Name is: {{ team.name }}</p>
+            <!--<p>Team in this division: {{ division }}</p>-->
+            <p>Team Nickname: {{ team.nickname }}</p>
+            <p>Team Location: {{ team.location }}</p>
+          </li>
+      </ul>
+
+      <!--<p ng-repeat='division in divisions' ng-if='division.id === team.id'>Division: {{ division.name }} </p>-->
+    </div>
+
+    <div ng-controller='mvpCtrl2'>
+      <div> {{ data }} </div>
+      <button ng-click='getBaseballData()'>Get Baseball Data</button>
+    </div>
+
+    <script src='baseball.js'></script>
+    <script src='football.js'></script>
+  </body>
+</html>
