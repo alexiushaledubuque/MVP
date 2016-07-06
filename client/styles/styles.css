@@ -101,13 +101,15 @@ button {
 
 li {
 	display: inline;
-	margin-left: 200px;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
     font-size: 20px;
 }
 
+[ng\:cloak], [ng-cloak], .ng-cloak {
+    display: none;
+}
 
 
 

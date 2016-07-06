@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app='mvpApp1'>
+<html ng-app='mvpApp1' ng-cloak>
 <head>
     <title>WHO's Your Team?</title>
     <link rel="stylesheet" type="text/css" href="styles/styles.css" />
@@ -12,41 +12,67 @@
   <div class='container'>
       <h1 class='header'>AMATEUR SPORTS STATS</h1>
       <h2 class="sub-title">Not A True Fan Of The Gridiron..</h2>
+      <h2 class="sub-title">Or Baseball, Hockey Or Any Sport?</h2>
       <h2 class='sub-title'>Impress A Few Folks This Amateur Knowledge!</h2>
         <div ng-controller='mvpCtrl1'>
           <form>
             <h3>Enter your city</h3><input type='text' placeholder="Enter A City" ng-model='mvpCity' autofocus />
-            <button ng-click='getData();getBaseballData()'>Get Team Info..</button>
+            <button ng-click='getFootballData();getBasketballData()'>Get Team Info..</button>
+            <!--<button ng-click='getFootballData();getBasketballData()'>Get Team Info..</button>-->
           </form>
-
+          <hr>
           <h1>Results for: {{ mvpCity }} </h1>
         <section>
+        <div>
           <ul>
               <li ng-repeat='team in teams' ng-if='mvpCity === team.name'>
                 <p>Football Team Name is: {{ team.name }}</p>
-                <p>Location: {{ team.location }}</p>
-                <p>Nickname: {{ team.nickname }}</p>
+                <p>Nickname:  {{ team.nickname }}</p>
                 <p>Popular Hashtags: {{ team.hashtag }}</p>
-                <p>Motto: {{ team.hashtags[1] }}</p>
+                <p>Motto:     {{ team.hashtags[1] }}</p>
               </li>
           </ul>
+          </div>
         </section>
         <section>
+        <div>
          <ul>
             <li ng-repeat='bteam in bteams' ng-if='mvpCity === bteam.name'>
               <p>Baseball Team Name is: {{ bteam.name }}</p>
-              <p>Location: {{ bteam.location }}</p>
               <p>Nickname: {{ bteam.nickname }}</p>
               <p>Popular Hashtags: {{ bteam.hashtag }}</p>
               <p>Motto: {{ bteam.hashtags[1] }}</p>
             </li>
           </ul>
+          </div>
         </section>
-
-
+        <section>
+        <div>
+         <ul>
+            <li ng-repeat='bkteam in bkteams' ng-if='mvpCity === bkteam.name'>
+              <p>Basketball Team Name is: {{ bkteam.name }}</p>
+              <p>Nickname: {{ bkteam.nickname }}</p>
+              <p>Popular Hashtags: {{ bkteam.hashtag }}</p>
+              <p>Motto: {{ bkteam.hashtags[1] }}</p>
+            </li>
+          </ul>
+          </div>
+        </section>
+        <section>
+        <div>
+         <ul>
+            <li ng-repeat='hteam in hteams' ng-if='mvpCity === hteam.name'>
+              <p>Hockey Team Name is: {{ hteam.name }}</p>
+              <p>Nickname: {{ hteam.nickname }}</p>
+              <p>Popular Hashtags: {{ hteam.hashtag }}</p>
+              <p>Motto: {{ hteam.hashtags[1] }}</p>
+            </li>
+          </ul>
+          </div>
+        </section>
         </div>
 
-      <script src='baseball.js'></script>
+      <!--<script src='baseball.js'></script>-->
       <script src='football.js'></script>
       <div ng-view></div>
   </div>
