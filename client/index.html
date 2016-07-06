@@ -10,11 +10,13 @@
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
 
   <div class='container'>
-      <h1>Who's Your Team?!</h1>
+      <h1 class='header'>AMATEUR SPORTS STATS</h1>
+      <h2 class="sub-title">Not A True Fan Of The Gridiron..</h2>
+      <h2 class='sub-title'>Impress A Few Folks This Amateur Knowledge!</h2>
         <div ng-controller='mvpCtrl1'>
           <form>
-            Enter your city <input type='text' placeholder="Enter A City" ng-model='mvpCity' value='*'/> 
-            <button ng-click='getData()'>Get Team Data</button>
+            <h3>Enter your city</h3><input type='text' placeholder="Enter A City" ng-model='mvpCity' autofocus />
+            <button ng-click='getData()'>Get Team Info..</button>
           </form>
 
           <h1>You entered: {{ mvpCity }}</h1>
@@ -25,10 +27,11 @@
                 <p>Team Location: {{ team.location }}</p>
                 <p>Team Nickname: {{ team.nickname }}</p>
                 <p>Popular Hashtags: {{ team.hashtag }}</p>
+                <p>Team Motto: {{ team.hashtags[1] }}</p>
               </li>
           </ul>
         </div>
-        
+
       <script src='baseball.js'></script>
       <script src='football.js'></script>
       <div ng-view></div>

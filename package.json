@@ -6,7 +6,8 @@
   "author": "Alexius Hale-Dubuque",
   "license": "ISC",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server/server.js"
   },
   "dependencies": {
     "bootstrap": "^4.0.0-alpha.2",
