@@ -1,6 +1,6 @@
 // need to modularize more for visual clarity!!!
 
-angular.module('mvpApp1', [])    
+angular.module('mvpApp1', [])
     .controller('mvpCtrl1', function($scope, $http) {
       $scope.teams = {};
       $scope.bteams = {};
@@ -17,7 +17,7 @@ angular.module('mvpApp1', [])
            "accept": "application/vnd.stattleship.com; version=1",
            "cache-control": "no-cache"
           }
-        }).then(function mySucces(response) {
+        }).then(function mySuccess(response) {
             $scope.teams = response.data["teams"];
         }, function error(error) {
             console.log(error);
