@@ -21,7 +21,7 @@
         <div class='display-wrapper' ng-controller='mvpCtrl1'>
           <form>
             <h3>Enter your city</h3><input type='text' placeholder="Enter A City" ng-model='mvpCity' autofocus />
-            <button ng-click='getFootballData();getBasketballData();getBaseballData'>Get Team Info..</button>
+            <button ng-click='getFootballData();getBasketballData();getBaseballData()'>Get Team Info..</button>
             <!--<button ng-click='getFootballData();getBasketballData()'>Get Team Info..</button>-->
           </form>
           <hr>
@@ -82,7 +82,7 @@
         var currentDte = moment().format('llll');
           $('#date').val(currentDte);
       </script>
-          
+
       <script src='football.js'></script>
       <div ng-view></div>
   </div>

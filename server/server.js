@@ -9,5 +9,5 @@ app.listen(port, function(err){
   if (err){
     console.log('server sucks');
   }
-  console.log('server is listening.....')
+  console.log('server is listening.....', port);
 });
