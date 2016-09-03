@@ -80,17 +80,9 @@
       <!--<script src='baseball.js'></script>-->
       <script>
         // var currentDte = moment().format('llll');
-        //var currentDte = new Date();
-        var configDate = function(){
-          var dateStr = new Date();
-          var dow = dateStr.getDay();
-          var month = dateStr.getMonth();
-          var day = dateStr.getDate();
-          var year = dateStr.getFullYear();
-          console.log('DOW: ' + dow + " Month: " + month + " Day: " + day + " Year: " + year);
-          return month + '/' + day + '/' + year;
-        }
-        var currentDte = configDate();
+        var currentDte = new Date();
+
+        console.log(currentDte);
 
         $('#date').val(currentDte);
       </script>
