@@ -1,94 +1,81 @@
 <!DOCTYPE html>
-<html ng-app='mvpApp1' ng-cloak>
+<html ng-app='app' ng-cloak>
 <head>
-    <title>WHO's Your Team?</title>
+    <title>Amateur Sports Stuff</title>
     <link rel="stylesheet" type="text/css" href="styles/styles.css" />
+
+    <!-- Bootstrap -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
-<body>
+<body align=center>
+  <div class="container contentContainer" id="topContainer"> <!-- class="container" creates a responsive fixed width container -->
+    <div class='panel panel-default'>
+      <div class='panel-heading'> <!-- Container for header of page -->
+        <div id='bgPanelFiller'>
+          <h1>AMATEUR SPORTS STUFF</h1>
+            <h3>Get professional sports information about any team located in the city you select<h3>
+              <h4>Team name, mascot, even popular hashtags...just click below<h4>
+        </div>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+  <div class="container contentContainer" align=center>
+    <div id="successAlert" class="alert alert-success" role="alert" style="display:none;"></div>
+    <div id="errorAlert" class="alert alert-danger" role="alert" style="display:none;"></div>
+  </div>
+
+  <!-- <section class='sportSection'> -->
+  <div class='row' align=center>
+    <div class='col-md-6'>
+      <div class='dropStyles' ng-controller='mvpCtrl1'>
+          <h2>Select A Sport</h2>
+          <div class='dropdown'>
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <span>Sport Types</span>
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right sportsOption" aria-labelledby="dropdownMenu1">
+              <li ng-model='baseball'><a href="#">Baseball</a><span class="glyphicons glyphicons-baseball"></span></li>
+              <li ng-model='basketball'><a href="#">Basketball</a></li>
+              <li ng-model='football'ng-click='getFootballData()'><a href="#">Football</a></li>
+              <li ng-model='hockey'><a href="#">Hockey</a></li>
+              <!-- <li role="separator" class="divider"></li> -->
+            </ul>
+          </div>
+    </div>
+  </div>
+
+  <!-- <section class='citySection'> -->
+  <div class='col-md-6'>
+    <div class='dropStyles'>
+      <h2>Choose A City</h2>
+      <div class='dropdown'>
+        <button class='btn btn-default dropdown-toggle' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+          <span>Cities</span>
+          <span class='caret'></span>
+        </button>
+        <ul class='dropdown-menu citiesList' aria-labelledby='dropdownMenu2'>
+            <!-- populate with cities after api request -->
+            <li><a href="#">Baseball</a></li>
+            <li><a href='#'>Basketball</a></li>
+            <li role="separator" class="divider"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js'></script>
   <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
-  <!-- <script src="//momentjs.com/downloads/moment.js"></script> -->
 
-  <div class='container'>
-   <section>
-    <div><input id="date" type="text" name="date" readonly="readonly"></div>
-   </section>
-      <h1 class='header'>AMATEUR SPORTS STATS</h1>
-      <h2 class="sub-title">Not A True Fan Of The Gridiron..</h2>
-      <h2 class="sub-title">Or Baseball, Hockey Or Any Sport?</h2>
-      <h2 class='sub-title'>Impress A Few Folks This Amateur Knowledge!</h2>
-        <div class='display-wrapper' ng-controller='mvpCtrl1'>
-          <form>
-            <h3>Enter your city</h3><input type='text' placeholder="Enter A City" ng-model='mvpCity' autofocus />
-            <button ng-click='getFootballData();getBasketballData();getBaseballData()'>Get Team Info..</button>
-            <!--<button ng-click='getFootballData();getBasketballData()'>Get Team Info..</button>-->
-          </form>
-          <hr>
-          <h1>Results for: {{ mvpCity }} </h1>
-        <!--<div class='data-display'>-->
-        <table class='data-display'>
-          <th>
-            <ul>
-                <li class='list-class' ng-repeat='team in teams' ng-if='mvpCity === team.name'>
-                  <p>Football Team Name is: {{ team.name }}</p>
-                  <p>Nickname:  {{ team.nickname }}</p>
-                  <p>Popular Hashtags: {{ team.hashtag }}</p>
-                  <p>Motto:     {{ team.hashtags[1] }}</p>
-                </li>
-            </ul>
-            </th>
-          <!--</div>-->
-        <!--<div>-->
-        <th>
-         <ul>
-            <li class='list-class' ng-repeat='bteam in bteams' ng-if='mvpCity === bteam.name'>
-              <p>Baseball Team Name is: {{ bteam.name }}</p>
-              <p>Nickname: {{ bteam.nickname }}</p>
-              <p>Popular Hashtags: {{ bteam.hashtag }}</p>
-              <p>Motto: {{ bteam.hashtags[1] }}</p>
-            </li>
-          </ul>
-          </th>
-          <!--</div>-->
-        <!--</div>-->
-          <th>
-         <ul>
-            <li class='list-class' ng-repeat='bkteam in bkteams' ng-if='mvpCity === bkteam.name'>
-              <p>Basketball Team Name is: {{ bkteam.name }}</p>
-              <p>Nickname: {{ bkteam.nickname }}</p>
-              <p>Popular Hashtags: {{ bkteam.hashtag }}</p>
-              <p>Motto: {{ bkteam.hashtags[1] }}</p>
-            </li>
-          </ul>
-          </th>
-          <!--</div>-->
-        <!--</div>-->
-        <th>
-         <ul>
-            <li class='list-class' ng-repeat='hteam in hteams' ng-if='mvpCity === hteam.name'>
-              <p>Hockey Team Name is: {{ hteam.name }}</p>
-              <p>Nickname: {{ hteam.nickname }}</p>
-              <p>Popular Hashtags: {{ hteam.hashtag }}</p>
-              <p>Motto: {{ hteam.hashtags[1] }}</p>
-            </li>
-          </ul>
-          </th>
-          <!--</div>-->
-        <!--</div>-->
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-      <!--<script src='baseball.js'></script>-->
-      <script>
-        // var currentDte = moment().format('llll');
-        var currentDte = new Date();
-
-        console.log(currentDte);
-
-        $('#date').val(currentDte);
-      </script>
-
-      <script src='football.js'></script>
-      <div ng-view></div>
+  <script src='sports.js'></script>
+  <!-- <div ng-view></div> -->
   </div>
   </body>
 </html>
