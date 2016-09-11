@@ -1,4 +1,8 @@
-angular.module('mvpApp1', [])
+angular.module('app', [
+  'app.services',
+  'app.football',
+  'ngRoute'
+])
 .config(function($routeProvider, function($routeProvider) {
   $routeProvider
     .when('/', {

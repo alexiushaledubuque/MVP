@@ -59,6 +59,10 @@ table {
 	border-spacing: 0;
 }
 
+/*============================
+ * App Styles after defaults
+ *============================*/
+
 body {
   background: url('assets/ff.jpeg') no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -67,7 +71,7 @@ body {
   background-size: cover;
   height: 100%;
   width: 100%;
-  color: #F8F8FF;
+  /*color: #F7F9F6;*/
 }
 
 .container {
@@ -76,78 +80,41 @@ body {
 	text-align: center;
 }
 
-#date {
-	float: left;
-	margin: 0 auto;
-	border-style: none;
-	height: 15px;
-	width: 310px;
-	font-size: 15px;
-}
-
-.header {
-	padding: 0;
-	color: #000000;
-	font-size: 40px;
-}
-
-#sub-title {
-	font-size: 35%;
-}
-
-.display-wrapper {
-	width: 100%;
-}
-
-.data-display {
-	width: 200px;
-	height: 200px;
-	list-style-type: none;
-	text-align: center;
-}
-
-input {
-	margin-left: 10px;
-	padding: 10px;
-	height: 50%;
-	width: 25%;
-	border-radius: 5%;
-	font-size: 15px;
-}
-
-button {
-	margin-left: 10px;
-	padding: 10px;
-	height: 50%;
-	width: 15%;
-	border-radius: 5%;
-	font-size: 15px;
-}
-
-li {
-	margin: 0;
-	display: inline;
-    font-weight: bold;
-    text-align: center;
-    list-style-type: none;
-    font-size: 35px;
-    scroll-behavior:
+#bgPanelFiller {
+  width: 100%;
+  height: 200%;
+  /*background-color: silver;*/
+  color: #000;
 }
 
 [ng\:cloak], [ng-cloak], .ng-cloak {
     display: none;
 }
 
-.list-class{
-	list-style-type: none;
+#successAlert, #errorAlert {
+  width: 70%;
 }
 
-table {
-    width: 100%;
-    text-align: left;
-    padding: 100px;
+h2 {
+  padding-top: 20px;
+  padding-bottom: 15px;
+  color: #00ff00;
 }
 
-th {
-    height: 50px;
+.dropStyles {
+  color: #FDFEFE;
+}
+
+button {
+  width: 250px;
+  height: 50;
+}
+
+span {
+  font-size: 25px;
+  color: #000;
+}
+
+li {
+  font-size: 20px;
 }

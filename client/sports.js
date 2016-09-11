@@ -1,13 +1,17 @@
-// need to modularize more for visual clarity!!!
+/*====================
+ * Heart of the app
+ *===================*/
 
-angular.module('mvpApp1', [])
+angular.module('app', [])
     .controller('mvpCtrl1', function($scope, $http) {
-      $scope.teams = {};
-      $scope.bteams = {};
-      $scope.bkteams = {};
-      $scope.hteams = {};
+      $scope.cities = {};
+      $scope.baseTeams = {};
+      $scope.baskTeams = {};
+      $scope.fTeams = {};
+      $scope.hTeams = {};
 
       $scope.getFootballData = function(){
+
         $http({
           "method": "GET",
           "url": "https://www.stattleship.com/football/nfl/teams",
@@ -17,7 +21,7 @@ angular.module('mvpApp1', [])
            "accept": "application/vnd.stattleship.com; version=1",
            "cache-control": "no-cache"
           }
-        }).then(function mySuccess(response) {
+        }).then(function mySucces(response) {
             $scope.teams = response.data["teams"];
         }, function error(error) {
             console.log(error);
