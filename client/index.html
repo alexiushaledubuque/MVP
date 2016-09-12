@@ -60,19 +60,19 @@
               <span class='caret'></span>
             </button>
 
-              <ul class='dropdown-menu citiesList' aria-labelledby='dropdownMenu2'>
+              <ul class='dropdown-menu citiesList' aria-labelledby='dropdownMenu2' ng-model='cityChoice'>
                 <br>
-                <li ng-repeat='city in clubs'>
-                  <button class='cityButtons' align='center' ng-click='passThisCity'><a href='#'>{{ city.name }}</a></button>
+                <li ng-repeat='city in clubs' >
+                  <button class='cityButtons'  ng-click='showCitySelected(cityChoice)' align='center'><a href='#'>{{ city.name }}</a></button>
                 </li>
                 <!-- <li class="@(Model.search_All_param == SiteStrings.All ? "active" : null)">
                   <a href="#">@SiteStrings.All</a>
                 </li> -->
-                  <!-- <li role="separator" class="divider"></li> --> -->
+                  <!-- <li role="separator" class="divider"></li> -->
               </ul>
           </div>
         </section>
-        <div color='red'>Option selected ====> {{ city.name }}</div>
+        <!-- <div>Option selected ====> {{ selectCity }}</div> -->
     </div>
   </div>
   <br>
@@ -80,34 +80,29 @@
     <table class='data-display'>
       <th>
         <ul>
-            <li class='list-class' ng-repeat='team in f' ng-if='mvpCity === team.name'>
+            <li ng-repeat='city in clubs'>
               <p>Team: {{ team.name }}</p>
               <p>Mascot:  {{ team.nickname }}</p>
               <p>Popular Hashtags: {{ team.hashtag }}</p>
-              <p>Motto:     {{ team.hashtags[1] }}</p>
+              <p>Motto: {{ team.hashtags[1] }}</p>
             </li>
         </ul>
       </th>
     </table>
   </div>
 
+  <!-- <script type="text/javascript"> -->
   <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
-  <script type="text/javascript">
+  <script>
+    $(document).ready(function() {
+        console.log("EXECUTING THIS FUNCTION!");
 
-    $(document).ready(function () {
-      $("#selected button a").on("click", function () {
-         Shiny.onInputChange('selectedvalue', $(this).text());
-        });
 
-      //Get user specific tweets only
         $('.cityButtons').click(function(){
+          console.log('CLICKED====>');
           var selected = $(this).val();
-          $('.user-tweets').empty();
-
-          getTweets(selected);
-
-        });
-
+          console.log('DROPDOWN ITEM CLICKED===> ', selected);
+        })
     });
   </script>
 
