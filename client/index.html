@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app='app' ng-cloak>
+<html ng-app='mainApp' ng-cloak>
 <head>
     <title>Amateur Sports Stuff</title>
     <link rel="stylesheet" type="text/css" href="styles/styles.css" />
@@ -8,7 +8,7 @@
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
-<body align=center>
+<body align=center ng-controller='mvpCtrl1' >
   <div class="container contentContainer" id="topContainer"> <!-- class="container" creates a responsive fixed width container -->
     <div class='panel panel-default'>
       <div class='panel-heading'> <!-- Container for header of page -->
@@ -30,7 +30,7 @@
   <!-- <section class='sportSection'> -->
   <div class='row' align=center>
     <div class='col-md-6'>
-      <div class='dropStyles' ng-controller='mvpCtrl1'>
+      <div class='dropStyles'>
           <h2>Select A Sport</h2>
           <div class='dropdown'>
             <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
@@ -52,18 +52,24 @@
   <div class='col-md-6'>
     <div class='dropStyles'>
       <h2>Choose A City or State</h2>
-      <div class='dropdown'>
-        <button class='btn btn-default dropdown-toggle' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
-          <span>Cities or State</span>
-          <span class='caret'></span>
-        </button>
-        <ul class='dropdown-menu citiesList' aria-labelledby='dropdownMenu2'>
-            <!-- populate with cities after api request -->
-            <!-- <li><a href="#">Baseball</a></li>
-            <li><a href='#'>Basketball</a></li>
-            <li role="separator" class="divider"></li> -->
-        </ul>
-      </div>
+        <div class='dropDownContainer'>
+          <div class='dropdown'>
+            <button class='btn btn-default dropdown-toggle' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
+              <span>Cities or State</span>
+              <span class='caret'></span>
+            </button>
+
+              <ul class='dropdown-menu citiesList' aria-labelledby='dropdownMenu2'>
+                <li ng-repeat='city in f'>
+                  <p><a href='#'>{{ city.name }}</a></p>
+                </li>
+                  <!-- populate with cities after api request -->
+                  <!-- <li><a href="#">Baseball</a></li>
+                  <li><a href='#'>Basketball</a></li>
+                  <li role="separator" class="divider"></li> -->
+              </ul>
+          </div>
+        </div>
     </div>
   </div>
 
@@ -74,7 +80,10 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
-  <script src='sports.js'></script>
+  <script src='/app/sports.js'></script>
+  <script src='/app/services/services.js'></script>
+  <script src='/app/app.js'></script>
+
   <!-- <div ng-view></div> -->
   </div>
   </body>
