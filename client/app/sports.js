@@ -22,12 +22,13 @@ angular.module('app.sports', [])
   };
 
   var collectCityNames = function(data){
+    var city = {};
     var cityArray = [];
-
     for (var key in data) {
-      cityArray.push(data[key].name);
+      city[data[key].name] = data[key].name;
     }
-    return cityArray;
+    // console.log('JSON OBJECT OF CITIES===> ', JSON.stringify(city));
+    return city;
   };
 
 
