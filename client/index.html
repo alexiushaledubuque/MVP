@@ -40,9 +40,9 @@
             <ul class="dropdown-menu dropdown-menu-right sportsOption" aria-labelledby="dropdownMenu1">
               <br>
               <li ng-click='getSportData("baseball/mlb/teams")'><a href="#">Baseball</a></li>
-              <li ng-click='getBasketballData()'><a href="#">Basketball</a></li>
+              <li ng-click='getSportData("basketball/nba/teams")'><a href="#">Basketball</a></li>
               <li ng-click='getSportData("football/nfl/teams")'><a href="#">Football</a></li>
-              <li ng-click='getHockeyData()'><a href="#">Hockey</a></li>
+              <li ng-click='getSportData("hockey/nhl/teams")'><a href="#">Hockey</a></li>
               <!-- <li role="separator" class="divider"></li> -->
             </ul>
           </div>
@@ -63,10 +63,12 @@
               <ul class='dropdown-menu citiesList' aria-labelledby='dropdownMenu2'>
                 <br>
                 <li ng-repeat='city in clubs'>
-                  <p align='center'><a href='#'>{{ city.name }}</a></p>
+                  <button align='center' ng-model=choice ng-click='choice=city.name'><a href='#'>{{ city.name }}</a></button>
                 </li>
                   <!-- <li role="separator" class="divider"></li> --> -->
               </ul>
+
+              <div color='red'>Option selected ====> {{ choice }}</div>
           </div>
         </section>
     </div>

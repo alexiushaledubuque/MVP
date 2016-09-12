@@ -17,4 +17,8 @@ angular.module('app.sports', [])
         console.log('FAILED TO GET DATA====> ', error);
       });
   };
+
+
+
+  // getTeamDetails(option)
 });
