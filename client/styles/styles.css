@@ -110,6 +110,10 @@ button {
   height: 50;
 }
 
+.dropDownContainer {
+  height: 200px;
+}
+
 span {
   font-size: 25px;
   color: #000;

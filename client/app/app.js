@@ -1,9 +1,13 @@
-angular.module('app', [
+/*====================
+ * App Router
+ *===================*/
+
+angular.module('mainApp', [
   'app.services',
-  'app.football',
+  'app.sports',
   'ngRoute'
 ])
-.config(function($routeProvider, function($routeProvider) {
+.config(function($routeProvider, $httpProvider) {
   $routeProvider
     .when('/', {
       templateUrl: 'index.html',
