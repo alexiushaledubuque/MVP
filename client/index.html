@@ -63,14 +63,16 @@
               <ul class='dropdown-menu citiesList' aria-labelledby='dropdownMenu2'>
                 <br>
                 <li ng-repeat='city in clubs'>
-                  <button align='center' ng-model=choice ng-click='choice=city.name'><a href='#'>{{ city.name }}</a></button>
+                  <button align='center' ng-click='passThisCity'><a href='#'>{{ city.name }}</a></button>
                 </li>
+                <!-- <li class="@(Model.search_All_param == SiteStrings.All ? "active" : null)">
+                  <a href="#">@SiteStrings.All</a>
+                </li> -->
                   <!-- <li role="separator" class="divider"></li> --> -->
               </ul>
-
-              <div color='red'>Option selected ====> {{ choice }}</div>
           </div>
         </section>
+        <div color='red'>Option selected ====> {{ city.name }}</div>
     </div>
   </div>
   <br>
@@ -88,6 +90,27 @@
       </th>
     </table>
   </div>
+
+  <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
+  <script type="text/javascript">
+
+    $(document).ready(function () {
+      $("#selected button a").on("click", function () {
+         Shiny.onInputChange('selectedvalue', $(this).text());
+        });
+      };
+
+      //Get user specific tweets only
+        $('.radio-options').click(function(){
+          var selected = $(this).val();
+          $('.user-tweets').empty();
+
+          getTweets(selected);
+
+        });
+
+    });
+  </script>
 
 
 
