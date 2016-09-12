@@ -63,7 +63,7 @@
               <ul class='dropdown-menu citiesList' aria-labelledby='dropdownMenu2'>
                 <br>
                 <li ng-repeat='city in clubs'>
-                  <button align='center' ng-click='passThisCity'><a href='#'>{{ city.name }}</a></button>
+                  <button class='cityButtons' align='center' ng-click='passThisCity'><a href='#'>{{ city.name }}</a></button>
                 </li>
                 <!-- <li class="@(Model.search_All_param == SiteStrings.All ? "active" : null)">
                   <a href="#">@SiteStrings.All</a>
@@ -98,10 +98,9 @@
       $("#selected button a").on("click", function () {
          Shiny.onInputChange('selectedvalue', $(this).text());
         });
-      };
 
       //Get user specific tweets only
-        $('.radio-options').click(function(){
+        $('.cityButtons').click(function(){
           var selected = $(this).val();
           $('.user-tweets').empty();
 
