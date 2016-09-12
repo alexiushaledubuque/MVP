@@ -39,10 +39,10 @@
             </button>
             <ul class="dropdown-menu dropdown-menu-right sportsOption" aria-labelledby="dropdownMenu1">
               <br>
-              <li ng-model='baseball'><a href="#">Baseball</a><span class="glyphicons glyphicons-baseball"></span></li>
-              <li ng-model='basketball'><a href="#">Basketball</a></li>
-              <li ng-model='football'ng-click='getFootballData()'><a href="#">Football</a></li>
-              <li ng-model='hockey'><a href="#">Hockey</a></li>
+              <li ng-click='getSportData("baseball/mlb/teams")'><a href="#">Baseball</a></li>
+              <li ng-click='getBasketballData()'><a href="#">Basketball</a></li>
+              <li ng-click='getSportData("football/nfl/teams")'><a href="#">Football</a></li>
+              <li ng-click='getHockeyData()'><a href="#">Hockey</a></li>
               <!-- <li role="separator" class="divider"></li> -->
             </ul>
           </div>
@@ -62,7 +62,7 @@
 
               <ul class='dropdown-menu citiesList' aria-labelledby='dropdownMenu2'>
                 <br>
-                <li ng-repeat='city in f'>
+                <li ng-repeat='city in clubs'>
                   <p align='center'><a href='#'>{{ city.name }}</a></p>
                 </li>
                   <!-- <li role="separator" class="divider"></li> --> -->
@@ -76,7 +76,7 @@
     <table class='data-display'>
       <th>
         <ul>
-            <li class='list-class' ng-repeat='team in teams' ng-if='mvpCity === team.name'>
+            <li class='list-class' ng-repeat='team in f' ng-if='mvpCity === team.name'>
               <p>Team: {{ team.name }}</p>
               <p>Mascot:  {{ team.nickname }}</p>
               <p>Popular Hashtags: {{ team.hashtag }}</p>
