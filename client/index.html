@@ -38,6 +38,7 @@
               <span class="caret"></span>
             </button>
             <ul class="dropdown-menu dropdown-menu-right sportsOption" aria-labelledby="dropdownMenu1">
+              <br>
               <li ng-model='baseball'><a href="#">Baseball</a><span class="glyphicons glyphicons-baseball"></span></li>
               <li ng-model='basketball'><a href="#">Basketball</a></li>
               <li ng-model='football'ng-click='getFootballData()'><a href="#">Football</a></li>
@@ -52,7 +53,7 @@
   <div class='col-md-6'>
     <div class='dropStyles'>
       <h2>Choose A City or State</h2>
-        <div class='dropDownContainer'>
+        <section class='dropDownContainer'>
           <div class='dropdown'>
             <button class='btn btn-default dropdown-toggle' type='button' id='dropdownMenu2' data-toggle='dropdown' aria-haspopup='true' aria-expanded='true'>
               <span>Cities or State</span>
@@ -60,18 +61,33 @@
             </button>
 
               <ul class='dropdown-menu citiesList' aria-labelledby='dropdownMenu2'>
+                <br>
                 <li ng-repeat='city in f'>
-                  <p><a href='#'>{{ city.name }}</a></p>
+                  <p align='center'><a href='#'>{{ city.name }}</a></p>
                 </li>
-                  <!-- populate with cities after api request -->
-                  <!-- <li><a href="#">Baseball</a></li>
-                  <li><a href='#'>Basketball</a></li>
-                  <li role="separator" class="divider"></li> -->
+                  <!-- <li role="separator" class="divider"></li> --> -->
               </ul>
           </div>
-        </div>
+        </section>
     </div>
   </div>
+  <br>
+  <div>
+    <table class='data-display'>
+      <th>
+        <ul>
+            <li class='list-class' ng-repeat='team in teams' ng-if='mvpCity === team.name'>
+              <p>Team: {{ team.name }}</p>
+              <p>Mascot:  {{ team.nickname }}</p>
+              <p>Popular Hashtags: {{ team.hashtag }}</p>
+              <p>Motto:     {{ team.hashtags[1] }}</p>
+            </li>
+        </ul>
+      </th>
+    </table>
+  </div>
+
+
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js'></script>

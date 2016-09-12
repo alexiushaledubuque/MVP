@@ -103,6 +103,7 @@ h2 {
 
 .dropStyles {
   color: #FDFEFE;
+  width: 400px;
 }
 
 button {
@@ -111,12 +112,17 @@ button {
 }
 
 .dropDownContainer {
-  height: 200px;
+  height: 300px;
+  overflow-y: scroll;
 }
 
 span {
   font-size: 25px;
   color: #000;
+}
+
+ul {
+  padding: 20px;
 }
 
 li {
