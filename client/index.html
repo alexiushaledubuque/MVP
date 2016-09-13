@@ -45,6 +45,7 @@
               <li ng-click='getSportData("hockey/nhl/teams")'><a href="#">Hockey</a></li>
               <!-- <li role="separator" class="divider"></li> -->
             </ul>
+
           </div>
     </div>
   </div>
@@ -59,54 +60,44 @@
               <span>Cities or State</span>
               <span class='caret'></span>
             </button>
-
-              <ul class='dropdown-menu citiesList' aria-labelledby='dropdownMenu2' ng-model='cityChoice'>
-                <br>
-                <li ng-repeat='city in clubs' >
-                  <button class='cityButtons'  ng-click='showCitySelected(cityChoice)' align='center'><a href='#'>{{ city.name }}</a></button>
+              <ul class='dropdown-menu citiesList' aria-labelledby='dropdownMenu2'>
+              <br>
+                <li ng-repeat='city in cities'>
+                  <button ng-click='dropBoxItemSelected(city.name)' align='center'><a href='#'>{{ city.name }}</a></button>
                 </li>
-                <!-- <li class="@(Model.search_All_param == SiteStrings.All ? "active" : null)">
-                  <a href="#">@SiteStrings.All</a>
-                </li> -->
                   <!-- <li role="separator" class="divider"></li> -->
               </ul>
           </div>
         </section>
-        <!-- <div>Option selected ====> {{ selectCity }}</div> -->
     </div>
   </div>
   <br>
   <div class="container contentContainer">
-    <table class='data-display'>
-      <th>
-        <ul>
-            <li ng-repeat='city in clubs'>
-              <p>Team: {{ team.name }}</p>
-              <p>Mascot:  {{ team.nickname }}</p>
-              <p>Popular Hashtags: {{ team.hashtag }}</p>
-              <p>Motto: {{ team.hashtags[1] }}</p>
-            </li>
-        </ul>
-      </th>
-    </table>
+    <section >
+      <div class='teamPic'>
+
+      </div>
+    </section>
+
+    <section>
+      <div  class='teamData'>
+      <table class='data-display'>
+        <!-- ng-style='showTable' -->
+          <th>
+            <ul>
+                <li>
+                  <p>Team: {{ city.name }}</p>
+                  <p>Mascot:  {{ city.nickname }}</p>
+                  <p>Popular Hashtags: {{ city.hashtag }}</p>
+                  <p>Motto: {{ city.hashtags[1] }}</p>
+                </li>
+            </ul>
+          </th>
+        </table>
+      </div>
+    </section>
+
   </div>
-
-  <!-- <script type="text/javascript"> -->
-  <script src="https://code.jquery.com/jquery-2.2.0.js"></script>
-  <script>
-    $(document).ready(function() {
-        console.log("EXECUTING THIS FUNCTION!");
-
-
-        $('.cityButtons').click(function(){
-          console.log('CLICKED====>');
-          var selected = $(this).val();
-          console.log('DROPDOWN ITEM CLICKED===> ', selected);
-        })
-    });
-  </script>
-
-
 
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src='//ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js'></script>

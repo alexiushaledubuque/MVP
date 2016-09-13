@@ -5,7 +5,8 @@
 angular.module('app.sports', [])
 .controller('mvpCtrl1', function($scope, $window, $location, Sport){
   $scope.clubs = {};
-  $scope.cities = {};
+  $scope.cities = [];
+  $scope.selectedItem;
 
   $scope.getSportData = function(sportChoice){
     console.log('STARTED GET SPORT DATA====>', sportChoice);
@@ -14,24 +15,25 @@ angular.module('app.sports', [])
         console.log('RESPONSE DATA====> ', response);
         $scope.clubs = response["teams"];
         console.log('GET DATA====>', $scope.clubs);
-        var Cities = collectCityNames(response["teams"]);
-        console.log('GET CITIES====>', Cities);
+        collectCityNames(response["teams"]);
+        console.log('GET CITIES====>', $scope.cities);
       }, function error(error) {
         console.log('FAILED TO GET DATA====> ', error);
       });
   };
 
   var collectCityNames = function(data){
-    var city = {};
-    var cityArray = [];
     for (var key in data) {
-      city[data[key].name] = data[key].name;
+      $scope.cities.push({name: data[key].name});
     }
-    // console.log('JSON OBJECT OF CITIES===> ', JSON.stringify(city));
-    return city;
   };
 
+  $scope.dropBoxItemSelected = function(item){
+    $scope.selectedItem = item;
 
+
+
+  }
 
   // getTeamDetails(option)
 });
